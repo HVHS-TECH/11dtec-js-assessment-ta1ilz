@@ -1,107 +1,148 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-
-  <style> 
-    @font-face {
-      font-family: myFont;
-      src: url(sansation_light.woff);
-    }
-    
-    * {
-       font-family: my Font;
-    }
-    </style>
-    </head>
-    <body>
-    
-  </body>
-  
-    <title>Vikums Hypercars<title>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Vikum's Doughnut Haven</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      background-color: #009dff;
-      color: #eee;
+    /* Custom font for a soft, human-designed feel */
+    @font-face {
+      font-family: "MyFont";
+      src: url("sansation_light.woff");
     }
 
+    body {
+      margin: 0;
+      font-family: "MyFont", Arial, sans-serif;
+      /* Base background using a deep chocolate tone */
+      background-color: #2b1810; 
+      /* Text color using a warm vanilla cream tone */
+      color: #f9f3eb; 
+    }
+
+    /* Top navigation styling */
     .topbar {
-      background-color: #009dff;
+      /* Dark chocolate header block */
+      background-color: #1c0f0a; 
       padding: 15px;
       text-align: center;
-      border-bottom: 1px solid hsl(185, 90%, 32%);
+      /* Subtle vanilla cream accent line */
+      border-bottom: 1px solid #ebdcb9; 
     }
 
     .topbar a {
-      color: white;
-      margin: 10px;
+      color: #f9f3eb;
+      margin: 0 10px;
       text-decoration: none;
       font-weight: bold;
+      transition: color 0.3s ease;
     }
 
     .topbar a:hover {
-      color: #33beff;
+      /* Bright glazed vanilla accent colour on hover */
+      color: #ebdcb9; 
     }
 
-    .search-box {
+    .topbar form {
       margin-top: 10px;
     }
 
-    .search-box input {
-      padding: 6px;
+    .topbar input[type="text"] {
+      padding: 8px;
       width: 200px;
-      border: 1px solid #555;
-      background-color: #222;
-      color: white;
+      background-color: #3d251a;
+      border: 1px solid #ebdcb9;
+      color: #f9f3eb;
+      border-radius: 4px;
     }
 
+    .topbar input[type="submit"] {
+      padding: 8px 12px;
+      background-color: #5c3a21;
+      border: 1px solid #ebdcb9;
+      color: #f9f3eb;
+      cursor: pointer;
+      border-radius: 4px;
+      font-weight: bold;
+    }
+
+    .topbar input[type="submit"]:hover {
+      background-color: #7a4f31;
+    }
+
+    /* Main layout and typography */
     .content {
-      padding: 20px;
       text-align: center;
+      padding: 20px;
+      max-width: 800px;
+      margin: 0 auto;
     }
 
-    .cars {
+    h1, h2 {
+      color: #ebdcb9; /* Rich vanilla/custard headers */
+    }
+
+    /* Doughnut grid and items */
+    .doughnuts {
       margin-top: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
     }
 
-    .cars div {
-      background-color: #222;
-      margin: 8px auto;
-      padding: 10px;
+    .doughnuts div {
       width: 220px;
-      border: 1px solid #555;
+      padding: 15px;
+      /* Rich milk chocolate card background */
+      background-color: #3d251a; 
+      border: 1px solid #5c3a21;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+      font-weight: bold;
+      transition: transform 0.2s ease;
     }
 
+    .doughnuts div:hover {
+      transform: translateY(-3px);
+      border-color: #ebdcb9;
+    }
+
+    /* Image frames */
     img {
-      margin-top: 20px;
-      border: 2px solid #555;
+      margin: 20px 10px;
+      border: 3px solid #5c3a21;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.5);
     }
 
+    /* Interactive button styles */
     .links a {
       display: inline-block;
       margin: 10px;
-      padding: 8px 12px;
-      background-color: #333;
-      color: white;
+      padding: 10px 16px;
+      background-color: #5c3a21;
+      border: 1px solid #ebdcb9;
+      color: #f9f3eb;
       text-decoration: none;
-      border: 1px solid #555;
+      border-radius: 6px;
+      font-weight: bold;
+      transition: background-color 0.2s ease;
     }
 
     .links a:hover {
-      background-color: #555;
+      background-color: #ebdcb9;
+      color: #2b1810;
     }
 
+    /* Footer structure */
     .footer {
       margin-top: 40px;
-      padding: 15px;
+      padding: 20px;
       text-align: center;
-      background-color: #009dff;
-      color: white;
-      border-top: 1px solid #444;
+      background-color: #1c0f0a;
+      border-top: 1px solid #ebdcb9;
     }
   </style>
 </head>
@@ -109,56 +150,50 @@
 <body>
 
   <div class="topbar">
-   
     <nav>
-      <a href="home.html">Home</a>
-      <a href="gallery.html">Gallery</a>
-      <a href="about.html">About</a>
+      <a href="#Home">Home</a>
+      <a href="#Menu">Gallery</a>
+      <a href="#Order">About</a>
     </nav>
 
-    <form method="get" action="https://www.google.com/search" target="_blank">
-      <input size="30" name="q" placeholder="Shrek finder 2.0">  
-      <input type="submit" value="Search"> 
+    <!-- Clean, semantic search functionality -->
+    <form action="https://www.google.com/search" method="get" target="_blank">
+      <input type="text" name="q" placeholder="Doughnut finder 2.0">
+      <input type="submit" value="Search">
     </form>
-
+  </div>
 
   <div class="content">
-    <h1>Doughnuts</h1>
-    <p>This page is about Doughnuts</p>
+    <h1>Doughnut Haven</h1>
+    <p>This page is about delicious doughnuts and some of the finest treats in the world.</p>
 
-    <h2>Top Hypercars</h2>
+    <h2>Top Doughnuts</h2>
 
-    <div class="cars">
-      <div>Glazed doughnut</div>
-      <div>Pink doughnut</div>
-      <div>Blue doughnut</div>
-      <div>Green doughnut</div>
-      <div>Purple doughnut</div>
-      <div></div>
+    <div class="doughnuts">
+      <div>Chocolate Glazed</div>
+      <div>Vanilla Custard</div>
+      <div>Maple Bacon</div>
+      <div>Boston Cream</div>
+      <div>Red Velvet</div>
+      <div>Cinnamon Twist</div>
     </div>
 
-    <img src="buggati.jpg" alt="Shrek" width="360" height="250">
-    <img src="jesko.jpg" alt="Shrek" width="360" height="250">
+    <!-- Placeholders for your treat visuals -->
+    <img src="chocolate_glazed.jpg" alt="Chocolate Glazed Doughnut" width="360" height="250">
+    <img src="vanilla_custard.jpg" alt="Vanilla Custard Doughnut" width="360" height="250">
 
     <div class="links">
-      <a href="https://en.wikipedia.org/wiki/Bugatti_Chiron" target="_blank">Bugatti Chiron</a>
-      <a href="https://en.wikipedia.org/wiki/Koenigsegg_Jesko" target="_blank">Koenigsegg Jesko</a>
+      <a href="https://wikipedia.org" target="_blank">Doughnuts</a>
+      <a href="https://wikipedia.org" target="_blank">Doughnuts</a>
     </div>
 
     <h2>About</h2>
-    <p>I made this page because I like Hyper cars</p>
+    <p>I made this page because I like doughnuts.</p>
 
-    <h2>Help</h2>
-    <p>Use the search bar to look for cars</p>
-  </div>
-
-  <div class="footer">
-  Vikum
+   
+    <div class="footer">
+    <p>©Vikum</p>
   </div>
 
 </body>
-
-
-
 </html>
-
