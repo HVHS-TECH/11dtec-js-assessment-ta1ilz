@@ -227,6 +227,23 @@
                     <button type="submit" class="action-btn">Submit</button>
                 </div>
             </form>
+
+            <div class="receipt-container" id="receipt" style="display:none;">
+              <h1>Receipt:</h1>
+
+             <h2><strong>Name:</strong> <span id="receiptName"></span></h2>
+
+             <h2><strong>Money:</strong> $<span id="receiptMoney"></span></h2>
+
+             <h2><strong>Total Order Cost:</strong> $<span id="receiptTotal"></span></h2>
+
+             <h2><strong>Change:</strong> $<span id="receiptChange"></span></h2>
+
+             <h2>Items Ordered:</h2>
+
+            <div id="receiptItems"></div>
+
+        </div>
         </div>
     </div>
     <script>
