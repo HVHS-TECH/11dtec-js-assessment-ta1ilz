@@ -78,25 +78,27 @@ function clearCart() {
 function sendOrder(e) {
     e.preventDefault();
 
+    // Check if cart is empty
     if (my_donuts.length === 0) {
         alert("Please add at least one doughnut.");
         return;
     }
 
-    document.getElementById("receipt").style.display = "block";
+    // Check name
+    const customerName = document.getElementById("custName").value;
 
-    document.getElementById("receiptName").textContent =
-        document.getElementById("custName").value;
+    if (customerName.trim() === "") {
+        alert("Please enter your name.");
+        return;
+    }
 
-    document.getElementById("receiptMoney").textContent =
-        till_total.toFixed(2);
+    // Fill receipt
+    document.getElementById("receiptName").textContent = customerName;
+    document.getElementById("receiptMoney").textContent = till_total.toFixed(2);
+    document.getElementById("receiptTotal").textContent = till_total.toFixed(2);
+    document.getElementById("receiptChange").textContent = "0.00";
 
-    document.getElementById("receiptTotal").textContent =
-        till_total.toFixed(2);
-
-    document.getElementById("receiptChange").textContent =
-        "0.00";
-
+    // List items
     let receiptHTML = "";
 
     for (let i = 0; i < my_donuts.length; i++) {
@@ -105,29 +107,13 @@ function sendOrder(e) {
             my_donuts[i].amount +
             " × " +
             my_donuts[i].title +
+            " - $" +
+            (my_donuts[i].cost * my_donuts[i].amount).toFixed(2) +
             "</p>";
     }
 
     document.getElementById("receiptItems").innerHTML = receiptHTML;
 
-    alert("Order submitted successfully!");
+    // Show receipt
+    document.getElementById("receipt").style.display = "block";
 }
-
-function sendOrder(e) {
-    e.preventDefault();
-
-    // Check if cart is empty
-    if (my_donuts.length === 0) {
-        alert("Please add at least one doughnut.");
-        return;
-    }
-
-    // Get customer name
-    const customerName = document.getElementById("custName").value;
-
-    if (customerName.trim() === "") {
-        alert("Please enter your name.");
-        return;
-    }
-
-    
