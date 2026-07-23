@@ -112,3 +112,45 @@ function sendOrder(e) {
 
     alert("Order submitted successfully!");
 }
+
+function sendOrder(e) {
+    e.preventDefault();
+
+    // Check if cart is empty
+    if (my_donuts.length === 0) {
+        alert("Please add at least one doughnut.");
+        return;
+    }
+
+    // Get customer name
+    const customerName = document.getElementById("custName").value;
+
+    if (customerName.trim() === "") {
+        alert("Please enter your name.");
+        return;
+    }
+
+    // Fill receipt
+    document.getElementById("receiptName").textContent = customerName;
+    document.getElementById("receiptMoney").textContent = till_total.toFixed(2);
+    document.getElementById("receiptTotal").textContent = till_total.toFixed(2);
+    document.getElementById("receiptChange").textContent = "0.00";
+
+    // Display ordered items
+    let receiptItems = "";
+    for (let i = 0; i < my_donuts.length; i++) {
+        receiptItems +=
+            "<p>" +
+            my_donuts[i].title +
+            " x" +
+            my_donuts[i].amount +
+            " - $" +
+            (my_donuts[i].cost * my_donuts[i].amount).toFixed(2) +
+            "</p>";
+    }
+
+    document.getElementById("receiptItems").innerHTML = receiptItems;
+
+    // Show receipt
+    document.getElementById("receipt").style.display = "block";
+}
