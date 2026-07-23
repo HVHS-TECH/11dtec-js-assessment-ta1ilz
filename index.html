@@ -262,6 +262,10 @@
             if (my_donuts.length === 0) {
                 visualList.innerHTML = '<li style="text-align:center; color:#888;">Empty Cart</li>';
             } else {
+                for (let j = 0; j < my_donuts.length; j++) {
+                    let item = my_donuts[j];
+                    let lineCost = item.cost * item.amount;
+                    till_total = till_total + lineCost;
                     
 
 
