@@ -244,6 +244,16 @@
                     found = true;
                 }
             }
+            if (found === false) {
+                let newItem = { 
+                    title: chosenName, 
+                    cost: itemCost, 
+                    amount: 1 
+                };
+                my_donuts.push(newItem);
+            }
+            updateCartDisplay();
+        }
                     
 
 
