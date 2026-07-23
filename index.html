@@ -235,6 +235,15 @@
 
         const visualList = document.getElementById('displayBox');
         const cashField = document.getElementById('custMoney');
+
+        function grabItem(chosenName, itemCost) {
+            let found = false;
+            for (let i = 0; i < my_donuts.length; i++) {
+                if (my_donuts[i].title === chosenName) {
+                    my_donuts[i].amount = my_donuts[i].amount + 1;
+                    found = true;
+                }
+            }
                     
 
 
