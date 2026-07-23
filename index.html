@@ -205,3 +205,15 @@
                  <div class="card-footer">
                      <span class="price-tag">$5.50</span>
                      <button class="add-btn" onclick="grabItem('Apple Cinnamon', 5.50)">Add to order</button>
+
+             </div>
+            </div>
+        </div>
+        <div class="order-sidebar">
+            <h2 class="sidebar-title">Order</h2>
+            <ul class="cart-items-list" id="displayBox"></ul>
+            <form class="form-container" id="checkoutForm" onsubmit="sendOrder(event)">
+                <div class="form-group">
+                    <label for="custName">Name :</label>
+                    <input type="text" id="custName" required>
+                </div>
