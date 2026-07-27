@@ -21,4 +21,10 @@ function grabItem(chosenName, itemCost) {
             amount: 1
         });
     }
+     updateCartDisplay();
+}
+
+function updateCartDisplay() {
+    visualList.innerHTML = "";
+    till_total = 0;
 
