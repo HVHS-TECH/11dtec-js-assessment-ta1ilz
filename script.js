@@ -48,3 +48,17 @@ function updateCartDisplay() {
     });
 }
 
+function runTotal() {
+    cashField.value = "$" + till_total.toFixed(2);
+}
+
+function clearCart() {
+    my_donuts = [];
+    till_total = 0;
+
+    document.getElementById("custName").value = "";
+    cashField.value = "";
+
+    updateCartDisplay();
+}
+
