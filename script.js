@@ -34,3 +34,17 @@ function updateCartDisplay() {
         return;
     }
 
+     my_donuts.forEach(item => {
+        const lineCost = item.cost * item.amount;
+        till_total += lineCost;
+
+        const row = document.createElement("li");
+        row.className = "cart-item";
+        row.innerHTML =
+            `<span>${item.title} (x${item.amount})</span>
+             <span>$${lineCost.toFixed(2)}</span>`;
+
+        visualList.appendChild(row);
+    });
+}
+
