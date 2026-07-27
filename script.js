@@ -71,3 +71,21 @@ function buildCheckoutList() {
         return;
     }
 
+     const list = document.createElement("ul");
+    list.className = "checkout-list";
+
+    my_donuts.forEach(item => {
+        const lineCost = item.cost * item.amount;
+
+        const row = document.createElement("li");
+        row.className = "checkout-item";
+        row.innerHTML =
+            `<span>${item.title} (x${item.amount})</span>
+             <span>$${lineCost.toFixed(2)}</span>`;
+
+        list.appendChild(row);
+    });
+
+    receiptItemsBox.appendChild(list);
+}
+
