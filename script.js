@@ -89,3 +89,10 @@ function buildCheckoutList() {
     receiptItemsBox.appendChild(list);
 }
 
+function sendOrder(event) {
+    event.preventDefault();
+
+    const paidAmount = till_total;
+    const changeDue = paidAmount - till_total;
+
+
