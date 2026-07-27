@@ -1,50 +1,51 @@
 <!DOCTYPE html>
-<html lang ="en">
+<html lang="en">
 <head>
-    <meta charset ="UTF-8">
-    <meta name ="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Doughnut page</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donut System</title>
     <style>
         body {
-           margin: 0;
-           padding: 0;
-           background: #964B00;
-           font-family: Arial, Helvetica, sans-serif;
-           color: #3d2314;
-           display: flex;
-           flex-direction: column;
-           align-items: center;
-       }    
+            margin: 0;
+            padding: 0;
+            background: #ffffff;
+            font-family: Arial, Helvetica, sans-serif;
+            color: #3d2314;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
         .header-logo {
-           text-align: center;
-           padding: 30px 0px 5px 0px;
-       }
-       .header-logo img {
-           max-width: 500px;
-           height: auto;
-       }
+            text-align: center;
+            padding: 30px 0px 5px 0px;
+        }
+        .header-logo img {
+            max-width: 170px;
+            height: auto;
+        }
         .container {
-           display: flex;
+            display: flex;
             flex-direction: column;
             align-items: center;
             width: 100%;
             max-width: 1200px;
             padding: 15px;
             gap: 35px;
-       }
+        }
         .menu-area {
             display: flex;
-            justify-content: space-between;
+            flex-direction: row;
             gap: 15px;
             width: 100%;
-            overflow-x: hidden;
-       }
+            overflow-x: scroll;
+            padding-bottom: 20px;
+        }
         .menu-card {
             background: #ffffff;
             text-align: center;
             min-width: 230px;
             padding: 15px;
-        }  
+        }
         .menu-card h3 {
             font-size: 1.25rem;
             margin: 0 0 10px 0;
@@ -81,10 +82,11 @@
         }
         .order-sidebar {
             width: 100%;
+            max-width: 400px;
             background: #ffffff;
             border: 2px solid #3d2314;
-            padding: 20px;
-            box-sizing: border-box;
+            text-align: center;
+            padding: 25px 15px;
         }
         .sidebar-title {
             font-size: 1.35rem;
@@ -106,27 +108,6 @@
             margin-bottom: 12px;
             font-size: 0.9rem;
         }
-         .receipt-container {
-            width: 100%;
-            box-sizing: border-box;
-            margin-top: 20px;
-            padding-top: 20px;
-            border-top: 2px solid #3d2314;
-            text-align: left;
-        }
-        .checkout-list {
-            padding: 0;
-            margin: 10px 0 0 0;
-            list-style: none;
-        }
-        .checkout-item {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 10px;
-            font-size: 0.95rem;
-            border-bottom: 1px dashed #ccc;
-            padding-bottom: 6px;
-        }
         .form-container {
             display: flex;
             flex-direction: column;
@@ -144,18 +125,14 @@
         }
         .form-group input {
             flex: 1;
-            padding: 10px 12px;
-            border: 2px solid #7a7a7a;
-            border-radius: 4px;
+            padding: 6px;
+            border: none;
+            border-bottom: 1px solid #3d2314;
             background: #ffffff;
             color: #3d2314;
-            font-size: 16px;
-            box-sizing: border-box;
         }
         .form-group input:focus {
-            outline: 2px solid #0b63d1;
-            outline-offset: 0;
-            border-color: #0b63d1;
+            outline: none;
         }
         .form-actions {
             display: flex;
@@ -164,31 +141,23 @@
             margin-top: 10px;
             flex-wrap: wrap;
         }
-        .add-btn,
         .action-btn {
-            background: #f0f0f0;
-            border: 2px solid #7a7a7a;
-            border-radius: 4px;
-            color: #000;
-            padding: 8px 16px;
-            font-size: 16px;
-            font-family: Arial, Helvetica, sans-serif;
+            background: #ffffff;
+            border: 1px solid #3d2314;
+            padding: 6px 12px;
+            font-size: 0.85rem;
             cursor: pointer;
+            color: #3d2314;
         }
-        .add-btn:hover,
         .action-btn:hover {
-            background: #e6e6e6;
+            background: #3d2314;
+            color: #ffffff;
         }
-        .add-btn:active,
-        .action-btn:active {
-            background: #dcdcdc;
-            border-color: #5f5f5f;
-        }
-        </style>
+    </style>
 </head>
 <body>
     <div class="header-logo">
-        <img src="Doughlectable.png" alt="Shop Logo">
+        <img src="doughnut_logo_placeholder.png" alt="Shop Logo">
     </div>
     <div class="container">
         <div class="menu-area">
@@ -206,23 +175,23 @@
                 <div class="card-footer">
                     <span class="price-tag">$5.50</span>
                     <button class="add-btn" onclick="grabItem('Choc Fill Donut', 5.50)">Add to order</button>
-                    </div>
-             </div>
-             <div class="menu-card">
-                 <h3>Vanilla Custard Doughnut</h3>
-                 <img src="vanilla_custard.jpg" alt="Boston Cream">
-                 <div class="card-footer">
-                     <span class="price-tag">$6.00</span>
-                     <button class="add-btn" onclick="grabItem('Vanilla Custard Doughnut', 6.00)">Add to order</button>
-                     </div>
-             </div>
-             <div class="menu-card">
-                 <h3>Country Doughnut</h3>
-                 <img src="Israel.png" alt="Apple Cinnamon">
-                 <div class="card-footer">
-                     <span class="price-tag">$5.50</span>
-                     <button class="add-btn" onclick="grabItem('Country Doughnut', 5.50)">Add to order</button>
-                     </div>
+                </div>
+            </div>
+            <div class="menu-card">
+                <h3>Boston Cream Doughnut</h3>
+                <img src="boston_cream.jpg" alt="Boston Cream">
+                <div class="card-footer">
+                    <span class="price-tag">$6.00</span>
+                    <button class="add-btn" onclick="grabItem('Boston Cream', 6.00)">Add to order</button>
+                </div>
+            </div>
+            <div class="menu-card">
+                <h3>Cinnamon Doughnut</h3>
+                <img src="apple_cinnamon.jpg" alt="Apple Cinnamon">
+                <div class="card-footer">
+                    <span class="price-tag">$5.50</span>
+                    <button class="add-btn" onclick="grabItem('Apple Cinnamon', 5.50)">Add to order</button>
+                </div>
             </div>
         </div>
         <div class="order-sidebar">
@@ -232,8 +201,8 @@
                 <div class="form-group">
                     <label for="custName">Name :</label>
                     <input type="text" id="custName" required>
-                    </div>
-                 <div class="form-group">
+                </div>
+                <div class="form-group">
                     <label for="custMoney">Money:</label>
                     <input type="text" id="custMoney" readonly placeholder="$0.00">
                 </div>
@@ -243,22 +212,6 @@
                     <button type="submit" class="action-btn">Submit</button>
                 </div>
             </form>
-            <div class="receipt-container" id="receipt" style="display:none;">
-              <h1>Receipt:</h1>
-
-             <h2><strong>Name:</strong> <span id="receiptName"></span></h2>
-
-             <h2><strong>Money:</strong> $<span id="receiptMoney"></span></h2>
-
-             <h2><strong>Total Order Cost:</strong> $<span id="receiptTotal"></span></h2>
-
-             <h2><strong>Change:</strong> $<span id="receiptChange"></span></h2>
-
-             <h2>Items Ordered:</h2>
-
-            <div id="receiptItems"></div>
-                
-            </div>
         </div>
     </div>
     <script>
@@ -298,7 +251,7 @@
                     let item = my_donuts[j];
                     let lineCost = item.cost * item.amount;
                     till_total = till_total + lineCost;
-
+                    
                     const row = document.createElement('li');
                     row.className = 'cart-item';
                     row.innerHTML = '<span>' + item.title + ' (x' + item.amount + ')</span><span>$' + lineCost.toFixed(2) + '</span>';
@@ -318,58 +271,13 @@
             updateCartDisplay();
         }
 
-        function buildCheckoutList() {
-            const receiptItemsBox = document.getElementById('receiptItems');
-            receiptItemsBox.innerHTML = '';
-
-            if (my_donuts.length === 0) {
-                receiptItemsBox.innerHTML = '<p>No items ordered.</p>';
-                return;
-            }
-
-            const list = document.createElement('ul');
-            list.className = 'checkout-list';
-
-            for (let k = 0; k < my_donuts.length; k++) {
-                const item = my_donuts[k];
-                const lineCost = item.cost * item.amount;
-
-                const listRow = document.createElement('li');
-                listRow.className = 'checkout-item';
-                listRow.innerHTML = '<span>' + item.title + ' (x' + item.amount + ')</span><span>$' + lineCost.toFixed(2) + '</span>';
-                list.appendChild(listRow);
-            }
-
-            receiptItemsBox.appendChild(list);
-        }
-
         function sendOrder(e) {
             e.preventDefault();
-
-            const paidAmount = till_total;
-            const changeDue = paidAmount - till_total;
-
-            document.getElementById('receiptName').textContent = document.getElementById('custName').value;
-            document.getElementById('receiptMoney').textContent = paidAmount.toFixed(2);
-            document.getElementById('receiptTotal').textContent = till_total.toFixed(2);
-            document.getElementById('receiptChange').textContent = changeDue.toFixed(2);
-
-            buildCheckoutList();
-
-            document.getElementById('receipt').style.display = 'block';
-
             alert('Order submitted successfully!');
             clearCart();
         }
-         </script>
+    </script>
 </body>
 </html>
 
 
-
-                
-
-
-
-                     
-        
