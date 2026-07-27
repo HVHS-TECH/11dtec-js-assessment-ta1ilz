@@ -327,6 +327,14 @@
                 return;
             }
 
+            const list = document.createElement('ul');
+            list.className = 'checkout-list';
+
+            for (let k = 0; k < my_donuts.length; k++) {
+                const item = my_donuts[k];
+                const lineCost = item.cost * item.amount;
+
+
                 
 
 
