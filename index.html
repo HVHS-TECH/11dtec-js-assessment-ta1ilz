@@ -334,6 +334,16 @@
                 const item = my_donuts[k];
                 const lineCost = item.cost * item.amount;
 
+                const listRow = document.createElement('li');
+                listRow.className = 'checkout-item';
+                listRow.innerHTML = '<span>' + item.title + ' (x' + item.amount + ')</span><span>$' + lineCost.toFixed(2) + '</span>';
+                list.appendChild(listRow);
+            }
+
+            receiptItemsBox.appendChild(list);
+        }
+
+
 
                 
 
