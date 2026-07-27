@@ -62,3 +62,12 @@ function clearCart() {
     updateCartDisplay();
 }
 
+function buildCheckoutList() {
+    const receiptItemsBox = document.getElementById("receiptItems");
+    receiptItemsBox.innerHTML = "";
+
+    if (my_donuts.length === 0) {
+        receiptItemsBox.innerHTML = "<p>No items ordered.</p>";
+        return;
+    }
+
