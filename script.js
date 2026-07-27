@@ -95,4 +95,27 @@ function sendOrder(event) {
     const paidAmount = till_total;
     const changeDue = paidAmount - till_total;
 
+    document.getElementById("receiptName").textContent =
+        document.getElementById("custName").value;
+
+    document.getElementById("receiptMoney").textContent =
+        paidAmount.toFixed(2);
+
+    document.getElementById("receiptTotal").textContent =
+        till_total.toFixed(2);
+
+    document.getElementById("receiptChange").textContent =
+        changeDue.toFixed(2);
+
+    buildCheckoutList();
+
+    document.getElementById("receipt").style.display = "block";
+
+    alert("Order submitted successfully!");
+
+    clearCart();
+}
+
+updateCartDisplay();
+
 
