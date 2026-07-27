@@ -28,3 +28,9 @@ function updateCartDisplay() {
     visualList.innerHTML = "";
     till_total = 0;
 
+     if (my_donuts.length === 0) {
+        visualList.innerHTML =
+            '<li style="text-align:center;color:#888;">Empty Cart</li>';
+        return;
+    }
+
